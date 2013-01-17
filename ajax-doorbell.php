@@ -20,7 +20,9 @@
 set_time_limit(0);
 date_default_timezone_set('Europe/London');
 
-$basedir = '/var/www/security';
+require_once('settings.php');
+
+$basedir = $photopath;
 
 if (!empty($_GET['mydate'])) {
 	$reqdate = date('Ymd', strtotime($_GET['mydate']));
@@ -37,7 +39,6 @@ if (isset($_GET['time_slider_min'])) {
 	$timerhigh = $_GET['time_slider_max'];	
 }
 
-require_once('settings.php');
 $localdir = "/images/".$reqdate."/doorbell/";
 $urldir = "http://".$url."/images/".$reqdate."/doorbell/";
 $urlthumbdir = "http://".$url."/images/".$reqdate."/doorbell/";
