@@ -1,0 +1,13 @@
+<?php
+
+$prowlkey = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$prowlpriority = 2;
+
+$htaccesspwd = 'user:pwd';
+$url = 'domain:port';
+
+$photopath="/media/external_hdd";
+$photourl = "domain:port";
+$photouser="user";
+$photopwd="pwd";
+

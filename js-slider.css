@@ -1,0 +1,28 @@
+.timeRangeInfo{
+    position: relative;
+    height: 30px;
+    margin-top: 60px;
+}
+.timeRangeInfo label{
+    position: absolute;
+    top: -30px;
+    left: 10px;
+}       /* moves label field */
+.timeRangeInfo #time_slider_min{
+    top: -40px;
+    position: absolute;
+    left: 100px;
+}       /* moves first input field */ 
+.timeRangeInfo #time_slider_max{
+    top: -40px;
+    position: absolute;
+    left: 170px;
+}      /* move second input field */ 
+.timeRangeInfo div.ui-slider{
+    position: absolute;
+}                   /* move both sliders - adressing 1st slider with CSS is hard */ 
+.timeRangeInfo div:last-child{
+    position: absolute;
+    left: 0px;
+}
+
