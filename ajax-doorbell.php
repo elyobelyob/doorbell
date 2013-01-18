@@ -80,7 +80,7 @@ if (isset($files)) {
 
 if ($i == 0) {
 	// Default when no pictures
-	$output = '<li><a href="'.$urldir.'../../../default.jpg" rel="external"><img src="'.$urlthumbdir.'../../../../defaultthumb.jpg" alt="Default Image"  /></a></li>';
+	$output = '<li><a href="http://'.$url.'/defaultthumb.jpg" rel="external"><img src="http://'.$url.'/defaultthumb.jpg" alt="Default Image"  /></a></li>';
 	echo $output;
 	flush();
 }
