@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-
+<?php require_once 'settings.php'; ?>
 <html>
 <head>
     <title>Home security doorbell</title>
@@ -9,7 +9,7 @@
     <link type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" rel="stylesheet">
     <link type="text/css" href="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.css" rel="stylesheet">
     <link type="text/css" href="http://dev.jtsage.com/jQM-DateBox2/css/demos.css" rel="stylesheet">
-    <link type="text/css" href="js-slider.css" rel="stylesheet"><!-- NOTE: Script load order is significant! -->
+    <link type="text/css" href="<?php echo "http://".$url;?>/js-slider.css" rel="stylesheet"><!-- NOTE: Script load order is significant! -->
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js">
 </script>
@@ -33,17 +33,17 @@
 </script>
     <script type="text/javascript" src="http://dev.jtsage.com/cdn/simpledialog/latest/jquery.mobile.simpledialog.min.js">
 </script>
-    <script type="text/javascript" src="js-slider.js">
+    <script type="text/javascript" src="<?php echo "http://".$url;?>/js-slider.js">
 </script><!--<script type="text/javascript" src="demos/extras.js"></script>-->
 
     <script type="text/javascript" src="http://dev.jtsage.com/gpretty/prettify.js">
 </script>
     <link type="text/css" href="http://dev.jtsage.com/gpretty/prettify.css" rel="stylesheet">
-    <link href="../js/photoswipe/jquery-mobile.css" type="text/css" rel="stylesheet">
-    <link href="../js/photoswipe/photoswipe.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="../js/photoswipe/lib/klass.min.js">
+    <link href="<?php echo "http://".$url;?>/js/photoswipe/jquery-mobile.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo "http://".$url;?>/js/photoswipe/photoswipe.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="<?php echo "http://".$url;?>/js/photoswipe/lib/klass.min.js">
 </script>
-    <script type="text/javascript" src="../js/photoswipe/code.photoswipe.jquery-3.0.4.min.js">
+    <script type="text/javascript" src="<?php echo "http://".$url;?>/js/photoswipe/code.photoswipe.jquery-3.0.4.min.js">
 </script>
     <script type="text/javascript">
 
