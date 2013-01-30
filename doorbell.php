@@ -124,3 +124,74 @@
 </body>
 </html>
 
+<?php
+function createThumbs( $pathToImages, $pathToThumbs, $imageName, $thumbWidth )
+{
+        // parse path for the extension
+        $info = pathinfo($pathToImages . $imageName);
+        // continue only if this is a JPEG image
+        if ( strtolower($info['extension']) == 'jpg' )
+        {
+                // load image and get image size
+                $img = imagecreatefromjpeg( "{$pathToImages}{$imageName}" );
+                $width = imagesx( $img );
+                $height = imagesy( $img );
+
+                // calculate thumbnail size
+                $new_width = $thumbWidth;
+                $new_height = floor( $height * ( $thumbWidth / $width ) );
+
+                // create a new temporary image
+                $tmp_img = imagecreatetruecolor( $new_width, $new_height );
+
+                // copy and resize old image into new image
+                imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+
+                // save thumbnail into a file
+                imagejpeg( $tmp_img, $pathToThumbs.$imageName );
+                //unlink($img);
+        }
+}
+
+date_default_timezone_set('Europe/London');
+
+require_once('settings.php');
+
+$basedir = '/media/external_hdd';
+
+if (!empty($_GET['mydate'])) {
+	$reqdate = date('Ymd', strtotime($_GET['mydate']));
+} else {
+	$reqdate = date('Ymd');
+}
+
+$localdir = $basedir."/images/".$reqdate."/doorbell/";
+$destinationThumbs = $basedir.'/images/'.$reqdate.'/thumbs/';
+
+// Identify directories
+$source = $basedir.$localdir;
+$i = 0;
+
+// Get array of all source files
+if (is_dir($localdir)) {
+	$files = scandir($localdir,1);
+}
+
+// Create Thumbs folder
+if (!file_exists($destinationThumbs)) {
+    mkdir($destinationThumbs, 0777);
+}
+
+// parse each file
+foreach ($files as $file) {
+
+    // make sure it's not a base 'file'
+	if (in_array($file, array(".","..","thumbs"))) { continue; }
+
+	// if already exists in thumbs, ignore
+	if (file_exists($destinationThumbs.$file)) { continue; }
+
+    // Create Thumb	
+	createThumbs($localdir,$destinationThumbs,$file,300);
+
+}

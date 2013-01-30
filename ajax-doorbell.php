@@ -30,18 +30,9 @@ if (!empty($_GET['mydate'])) {
 	$reqdate = date('Ymd');
 }
 
-if (isset($_GET['slider'])) {
-	$lim = ($_GET['slider']/100);
-}
-
-if (isset($_GET['time_slider_min'])) {
-	$timerlow = $_GET['time_slider_min'];	
-	$timerhigh = $_GET['time_slider_max'];	
-}
-
 $localdir = "/images/".$reqdate."/doorbell/";
 $urldir = "http://".$url."/images/".$reqdate."/doorbell/";
-$urlthumbdir = "http://".$url."/images/".$reqdate."/doorbell/";
+$urlthumbdir = "http://".$url."/images/".$reqdate."/thumbs/";
 
 // Identify directories
 $source = $basedir.$localdir;
@@ -52,10 +43,19 @@ if (is_dir($source)) {
 	$files = scandir($source,1);
 }
 
+// Setup slider from front page
+if (isset($_GET['slider'])) {
+	$lim = ($_GET['slider']/100);
+}
+
+if (isset($_GET['time_slider_min'])) {
+	$timerlow = $_GET['time_slider_min'];	
+	$timerhigh = $_GET['time_slider_max'];	
+}
+
 if (isset($files)) {
 	// Cycle through all source files
 	foreach ($files as $file) {
-
 
 		if (in_array($file, array(".","..","thumbs"))) { continue; }
 
