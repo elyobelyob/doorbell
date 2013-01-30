@@ -68,7 +68,7 @@ if (isset($files)) {
 		if($d >= $lim) {
 			$i++;
 			$output = '<li><a href="'.$urldir.$file.'" rel="external">';
-			$output .= '<img src="'.$urldir.$file.'" alt="'.$file.'"  /></a></li>';
+			$output .= '<img src="'.$urlthumbdir.$file.'" alt="'.$file.'"  /></a></li>';
 
 			//$lastfile = $file;
 			echo $output;
