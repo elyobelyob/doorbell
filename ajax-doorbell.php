@@ -61,7 +61,7 @@ if (!empty($_GET['mydate'])) {
 }
 
 $localdir = $basedir."/images/".$reqdate."/doorbell/";
-$destinationThumbs = '/images/'.$reqdate.'/thumbs/';
+$destinationThumbs = 'images/'.$reqdate.'/thumbs/';
 $urldir = "http://".$url."/images/".$reqdate."/doorbell/";
 $urlthumbdir = "http://".$url."/images/".$reqdate."/thumbs/";
 $i = 0;
