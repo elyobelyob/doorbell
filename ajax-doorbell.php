@@ -48,6 +48,44 @@ function createThumbs( $pathToImages, $pathToThumbs, $imageName, $thumbWidth )
         }
 }
 
+function createThumbsAndDate( $pathToImages, $pathToThumbs, $imageName, $thumbWidth )
+{
+        // parse path for the extension
+        $info = pathinfo($pathToImages . $imageName);
+        // continue only if this is a JPEG image
+        if ( strtolower($info['extension']) == 'jpg' )
+        {
+                // load image and get image size
+                $img = imagecreatefromjpeg( "{$pathToImages}{$imageName}" );
+                $width = imagesx( $img );
+                $height = imagesy( $img );
+
+                // calculate thumbnail size
+                $new_width = $thumbWidth;
+                $new_height = floor( $height * ( $thumbWidth / $width ) );
+
+                // create a new temporary image
+                $tmp_img = imagecreatetruecolor( $new_width, $new_height );
+
+                // copy and resize old image into new image
+                imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+
+                //now create the text on a new canvas
+                $text = imagecreatetruecolor($new_width, $new_height);
+                //place some text at the top left
+                imagestring($text, 5, 0, 0, $imageName, 0x0000FF);
+                
+                // merge the two canvas
+                //set opacity to 50%
+                imagecopymerge($img, $text, 0, 0, 0, 0, $new_width, $new_height, 50);
+
+                // save thumbnail into a file
+                imagejpeg( $tmp_img, $pathToThumbs.$imageName );
+                imagedestroy ($text);
+                //unlink($img);
+        }
+}
+
 date_default_timezone_set('Europe/London');
 
 require_once('settings.php');
@@ -146,4 +184,6 @@ if ($i == 0) {
 	</div>
 
 </div>
+
+
 
