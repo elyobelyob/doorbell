@@ -10,7 +10,7 @@ $newDestination = '/media/external_hdd/images/'.date('Ymd').'/doorbell/';
 
 if (!file_exists($newDestination)) { mkdir($newDestination); }
 
-for ($i=0; $i<10; $i++) {
+for ($i=0; $i<9; $i++) {
 	$timecreate = date('His');
 	$cmd = "wget -q $url -O ".$newDestination.$timecreate.".jpg";
 	exec($cmd);
