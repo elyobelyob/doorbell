@@ -117,9 +117,6 @@
             </div>
         </div>
 
-        <div data-role="footer">
-            <h4>Cleaveland Road</h4>
-        </div>
     </div>
 </body>
 </html>

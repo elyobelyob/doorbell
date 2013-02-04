@@ -2,12 +2,11 @@
 require_once('settings.php');
 
 $url = 'http://'.$photourl.'/snapshot.cgi\?user='.$photouser.'\&pwd='.$photopwd;
-$newDestinationRoot = $photopath.'/images/'.date('Ymd').'/';
 
+$newDestinationRoot = $photopath.'/images/'.date('Ymd').'/';
 if (!file_exists($newDestinationRoot)) { mkdir($newDestinationRoot); }
 
-$newDestination = '/media/external_hdd/images/'.date('Ymd').'/doorbell/';
-
+$newDestination = $photopath.'/images/'.date('Ymd').'/doorbell/';
 if (!file_exists($newDestination)) { mkdir($newDestination); }
 
 for ($i=0; $i<9; $i++) {
