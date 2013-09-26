@@ -136,6 +136,8 @@ foreach ($files as $file) {
 // Setup slider from front page
 if (isset($_GET['slider'])) {
 	$lim = ($_GET['slider']/100);
+} else {
+	$lim = 0;
 }
 
 if (isset($_GET['time_slider_min'])) {
